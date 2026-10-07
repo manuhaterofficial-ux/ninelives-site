@@ -7,8 +7,14 @@
 <meta name="description" content="Spiritual cat art prints by Mira, the Cat Keeper. Printable cat guardians for rest, comfort, protection and new beginnings, each with its own legend and ritual page.">
 <meta property="og:title" content="Nine Lives Spirit Cats">
 <meta property="og:description" content="Printable spiritual cat art: cats as quiet spirit guides, each with its own legend.">
-<meta property="og:image" content="/img/03_nazar_guardian.jpg">
+<meta property="og:image" content="https://ninelivespiritcats.com/img/03_nazar_guardian.jpg">
+<meta property="og:url" content="https://ninelivespiritcats.com/">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ninelivespiritcats.com/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Nine Lives Spirit Cats","url":"https://ninelivespiritcats.com/","logo":"https://ninelivespiritcats.com/favicon.svg","description":"Spiritual cat art prints by Mira, the Cat Keeper, from Istanbul.","founder":{"@type":"Person","name":"Mira, the Cat Keeper"}}
+</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,7 +116,47 @@ dialog::backdrop{background:#0b0c1dcc}
 .close{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:none;background:var(--surface);color:var(--ink);font-size:20px;cursor:pointer;z-index:1}
 .soon{font-size:13px;color:var(--muted)}
 
+/* news & stories */
+.posts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.post{display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:left;color:inherit;font:inherit;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.post:hover{transform:translateY(-3px);box-shadow:0 18px 40px -22px #2a1f5a88}
+.post:focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px}
+.post img{width:140px;aspect-ratio:1;object-fit:cover;border-radius:8px;background:var(--line)}
+.post .pm{display:grid;gap:6px;min-width:0}
+.post h3{font-size:22px;line-height:1.2}
+.post p{margin:0;color:var(--muted);font-size:15px}
+.tag{display:flex;gap:8px;align-items:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--lavender)}
+.tag time{color:var(--muted);letter-spacing:.04em;text-transform:none;font-weight:500}
+.draft{background:var(--gold-soft);color:var(--on-gold);border-radius:999px;padding:1px 8px;letter-spacing:.06em}
+.reader{max-width:min(720px,calc(100vw - 32px))}
+.reader img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--line)}
+.reader .rb{padding:28px clamp(20px,5vw,44px) 36px;display:grid;gap:14px}
+.reader h3{font-size:clamp(28px,4vw,36px);line-height:1.15}
+.reader .rt{display:grid;gap:14px;max-width:62ch}
+.reader .rt p{margin:0;white-space:pre-line}
+.reader .src{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin:6px 0 0}
+
+/* contact */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.contact form{display:grid;gap:14px;min-width:0}
+.contact label{display:grid;gap:6px;font-size:14px;font-weight:600}
+.contact input,.contact select,.contact textarea{font:400 16px var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 13px;width:100%}
+.contact textarea{min-height:150px;resize:vertical}
+.contact input:focus-visible,.contact select:focus-visible,.contact textarea:focus-visible{outline:2px solid var(--lavender);outline-offset:1px}
+.contact .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact .fine{font-size:13px;color:var(--muted);margin:0}
+.contact .status{margin:0;font-weight:600}
+.contact .status.ok{color:var(--lavender)}
+.contact .status.err{color:var(--gold)}
+.contact button{justify-self:start;border:none;cursor:pointer;background:var(--night);color:var(--night-ink)}
+.contact button:disabled{opacity:.6;cursor:default}
+.hp{position:absolute;left:-9999px}
+
 @media (max-width:820px){
+  .contact{grid-template-columns:1fr;gap:28px}
+  .contact .two{grid-template-columns:1fr}
+  .post{grid-template-columns:96px 1fr}
+  .post img{width:96px}
   .hero .wrap,.story,.dlg{grid-template-columns:1fr}
   .top nav a:not(.shop){display:none}
   .hero figure{max-width:420px}
@@ -131,7 +177,7 @@ dialog::backdrop{background:#0b0c1dcc}
         <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#e7c983" d="M17 40c-3 0-4-3-3-7 1-5 3-9 3-14l-2-7 5 4h6l5-4-2 7c0 5 2 9 3 14 1 4 0 7-3 7z"/><path d="M31 39c6 0 10-3 10-9" stroke="#e7c983" stroke-width="2" fill="none" stroke-linecap="round"/><g fill="#ece8f7"><circle cx="44" cy="26" r="1"/><circle cx="45" cy="21" r=".8"/><circle cx="43" cy="16" r="1"/><circle cx="40" cy="11" r=".8"/><circle cx="35" cy="7" r="1"/><circle cx="9" cy="8" r=".8"/><circle cx="5" cy="14" r="1"/><circle cx="4" cy="21" r=".8"/><circle cx="6" cy="28" r="1"/></g></svg>
         <span data-t="brand">Nine Lives Spirit Cats</span>
       </div>
-      <nav aria-label="Sections"><a href="#guardians">Guardians</a><a href="#companions">Companions</a><a href="#included">What you get</a><a href="#mira">About Mira</a><a class="shop" id="shopLink" href="#" target="_blank" rel="noopener" hidden>Shop on Etsy</a></nav>
+      <nav aria-label="Sections"><a href="#guardians">Guardians</a><a href="#companions">Companions</a><a href="#included">What you get</a><a href="#mira">About Mira</a><a href="#stories" id="navStories" hidden>Stories</a><a href="#contact">Contact</a><a class="shop" id="shopLink" href="#" target="_blank" rel="noopener" hidden>Shop on Etsy</a></nav>
     </div>
     <div>
       <p class="eyebrow" data-t="heroEyebrow"></p>
@@ -189,8 +235,47 @@ dialog::backdrop{background:#0b0c1dcc}
     </div>
   </section>
 
-  <section class="band" style="padding-block:48px">
+  <section id="stories" class="band" hidden>
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow" data-t="postsEyebrow"></p><h2 data-t="postsTitle"></h2></div>
+        <p data-t="postsText"></p>
+      </div>
+      <div class="posts" id="posts"></div>
+    </div>
+  </section>
+
+  <section style="padding-block:48px">
     <div class="wrap notes" id="notes"></div>
+  </section>
+
+  <section id="contact" class="band">
+    <div class="wrap contact">
+      <div>
+        <p class="eyebrow" data-t="contactEyebrow"></p>
+        <h2 style="font-size:clamp(28px,4vw,40px);margin-top:6px" data-t="contactTitle"></h2>
+        <p style="color:var(--muted);max-width:46ch" data-t="contactText"></p>
+      </div>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company" id="contactForm">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hp"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off"></label></p>
+        <label for="c-kind">What is it about?
+          <select id="c-kind" name="kind" required>
+            <option value="Request">A request</option>
+            <option value="Question" selected>A question</option>
+            <option value="Complaint">Something went wrong</option>
+          </select>
+        </label>
+        <div class="two">
+          <label for="c-name">Your name<input id="c-name" name="name" autocomplete="name" required></label>
+          <label for="c-email">Your email<input id="c-email" name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <label for="c-msg">Your message<textarea id="c-msg" name="message" required></textarea></label>
+        <p class="fine">I only use your name and email to reply to you. Nothing is shared or added to a mailing list.</p>
+        <button class="btn" type="submit" id="c-send">Send message</button>
+        <p class="status" id="c-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
   </section>
 </main>
 
@@ -215,6 +300,17 @@ dialog::backdrop{background:#0b0c1dcc}
       <div><a class="btn btn-gold" id="dlg-buy" href="#" target="_blank" rel="noopener" hidden>Buy on Etsy</a></div>
       <p class="soon" id="dlg-soon">Coming soon as an instant digital download on Etsy.</p>
     </div>
+  </div>
+</dialog>
+
+<dialog id="rd" class="reader" aria-labelledby="rd-title">
+  <button class="close" id="rd-close" type="button" aria-label="Close">×</button>
+  <img id="rd-img" alt="">
+  <div class="rb">
+    <span class="tag" id="rd-tag"></span>
+    <h3 id="rd-title"></h3>
+    <div class="rt" id="rd-body"></div>
+    <p class="src" id="rd-src"></p>
   </div>
 </dialog>
 
@@ -254,7 +350,62 @@ function render(S){
   $('facts').replaceChildren(...(T.facts || []).map(i => { const d = el('div'); d.append(el('b', null, i.v), el('span', null, i.l)); return d; }));
   $('story').replaceChildren(...(T.story || []).map(t => el('p', null, t)), el('p', 'sig', T.signature || ''));
   $('notes').replaceChildren(...(T.notes || []).map(n => { const d = el('div'); d.append(el('h3', null, n.t), el('p', null, n.p)); return d; }));
+  thanks = T.contactThanks || 'Thank you. Your message was sent.';
+  renderPosts(S.posts || []);
 }
+
+/* news & stories: drafts stay hidden unless the address ends with ?preview */
+const PREVIEW = new URLSearchParams(location.search).has('preview');
+const KIND = { story: 'Story', news: 'News' };
+let thanks = '';
+function fmtDate(d){ const t = new Date(d + 'T12:00:00'); return isNaN(t) ? '' : t.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }); }
+function tagFor(p){
+  const t = el('span', 'tag'); t.append(KIND[p.type] || 'Story');
+  if (p.date){ const tm = el('time', null, fmtDate(p.date)); tm.dateTime = p.date; t.append(' · ', tm); }
+  if (!p.published) t.append(el('span', 'draft', 'Draft'));
+  return t;
+}
+function renderPosts(all){
+  const list = all.filter(p => p.published || PREVIEW).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  $('stories').hidden = $('navStories').hidden = !list.length;
+  $('posts').replaceChildren(...list.map(p => {
+    const b = el('button', 'post'); b.type = 'button';
+    const img = el('img'); img.src = p.img || '/img/03_nazar_guardian.jpg'; img.alt = ''; img.loading = 'lazy';
+    const m = el('div', 'pm'); m.append(tagFor(p), el('h3', null, p.title), el('p', null, p.excerpt || ''));
+    b.append(img, m); b.addEventListener('click', () => openPost(p));
+    return b;
+  }));
+  const want = location.hash.slice(1);
+  const hit = list.find(p => p.slug && p.slug === want);
+  if (hit) openPost(hit);
+}
+function openPost(p){
+  $('rd-img').src = p.img || '/img/03_nazar_guardian.jpg';
+  $('rd-tag').replaceWith(Object.assign(tagFor(p), { id: 'rd-tag' }));
+  $('rd-title').textContent = p.title;
+  $('rd-body').replaceChildren(...(p.body || '').split(/\n\s*\n/).map(t => el('p', null, t.trim())));
+  $('rd-src').textContent = p.source || ''; $('rd-src').hidden = !p.source;
+  if (p.slug) history.replaceState(null, '', location.pathname + location.search + '#' + p.slug);
+  $('rd').showModal();
+}
+$('rd-close').addEventListener('click', () => $('rd').close());
+$('rd').addEventListener('click', e => { if (e.target === $('rd')) $('rd').close(); });
+$('rd').addEventListener('close', () => history.replaceState(null, '', location.pathname + location.search));
+
+/* contact form: sent to Netlify Forms */
+$('contactForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.target, st = $('c-status'), btn = $('c-send');
+  btn.disabled = true; st.className = 'status'; st.textContent = 'Sending…';
+  try {
+    const r = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(f)).toString() });
+    if (!r.ok) throw 0;
+    f.reset(); st.className = 'status ok'; st.textContent = thanks;
+  } catch {
+    st.className = 'status err'; st.textContent = 'Your message could not be sent. Please check your connection and try again.';
+  }
+  btn.disabled = false;
+});
 
 function openView(p){
   $('dlg-img').src = p.img; $('dlg-img').alt = p.alt || p.name;

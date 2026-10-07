@@ -61,6 +61,46 @@ content:
             description: Yalnızca bir üründe işaretle.
             type: boolean
 
+      - name: posts
+        label: Haberler ve hikâyeler
+        description: "'Yayında' işaretli olmayanlar sitede görünmez. Taslakları görmek için adresin sonuna ?preview ekle."
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Başlık
+            type: string
+          - name: published
+            label: Yayında
+            type: boolean
+          - name: type
+            label: Tür
+            type: select
+            options:
+              values:
+                - name: story
+                  label: Hikâye
+                - name: news
+                  label: Haber
+          - name: date
+            label: Tarih (YYYY-AA-GG)
+            type: string
+          - name: img
+            label: Görsel
+            type: image
+          - name: excerpt
+            label: Kısa özet (kartta görünür)
+            type: text
+          - name: body
+            label: Yazının tamamı (paragrafların arasında bir boş satır bırak)
+            type: text
+          - name: source
+            label: Kaynak notu
+            type: string
+          - name: slug
+            label: Bağlantı adı (ör. the-cat-at-the-gate)
+            type: string
+
       - name: text
         label: Sayfa yazıları
         type: object
@@ -109,5 +149,12 @@ content:
             fields:
               - { name: t, label: Başlık, type: string }
               - { name: p, label: Metin, type: text }
+          - { name: postsEyebrow, label: "Haberler ve hikâyeler: üst yazı", type: string }
+          - { name: postsTitle, label: "Haberler ve hikâyeler: başlık", type: string }
+          - { name: postsText, label: "Haberler ve hikâyeler: açıklama", type: text }
+          - { name: contactEyebrow, label: "Mesaj kutusu: üst yazı", type: string }
+          - { name: contactTitle, label: "Mesaj kutusu: başlık", type: string }
+          - { name: contactText, label: "Mesaj kutusu: açıklama", type: text }
+          - { name: contactThanks, label: "Mesaj gönderilince çıkan teşekkür", type: text }
           - { name: footer, label: Altbilgi, type: string }
           - { name: soon, label: "Etsy linki yokken görünen yazı", type: string }
