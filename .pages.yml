@@ -1,0 +1,113 @@
+media:
+  input: img
+  output: /img
+
+content:
+  - name: site
+    label: Site (yazılar ve ürünler)
+    type: file
+    path: site.json
+    format: json
+    fields:
+      - name: shopUrl
+        label: Etsy mağaza linki
+        description: Boş bırakırsan sitede "Etsy shop opening soon" yazar.
+        type: string
+
+      - name: products
+        label: Ürünler
+        description: Sırayı sürükleyerek değiştirebilirsin.
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Ürün adı
+            type: string
+          - name: img
+            label: Görsel
+            type: image
+          - name: price
+            label: Fiyat ($)
+            type: number
+          - name: collection
+            label: Koleksiyon
+            type: select
+            options:
+              values:
+                - name: guardians
+                  label: The Nine Lives Guardians
+                - name: companions
+                  label: Spirit Companions
+          - name: label
+            label: Üst etiket (ör. Guardian 3)
+            type: string
+          - name: theme
+            label: Kısa tema
+            type: string
+          - name: legend
+            label: Efsane
+            type: text
+          - name: title
+            label: Uzun başlık (Etsy başlığı)
+            type: string
+          - name: alt
+            label: Görsel açıklaması
+            type: string
+          - name: etsy
+            label: Bu ürünün Etsy linki
+            type: string
+          - name: featured
+            label: Girişte büyük göster
+            description: Yalnızca bir üründe işaretle.
+            type: boolean
+
+      - name: text
+        label: Sayfa yazıları
+        type: object
+        fields:
+          - { name: brand, label: Marka adı, type: string }
+          - { name: heroEyebrow, label: "Giriş: küçük üst yazı", type: string }
+          - { name: heroTitle, label: "Giriş: başlık (beyaz kısım)", type: string }
+          - { name: heroTitleEm, label: "Giriş: başlık (altın kısım)", type: string }
+          - { name: heroLede, label: "Giriş: açıklama", type: text }
+          - { name: featuredCaption, label: "Girişteki ürünün alt yazısı", type: string }
+          - { name: c1Eyebrow, label: "1. koleksiyon: üst yazı", type: string }
+          - { name: c1Title, label: "1. koleksiyon: başlık", type: string }
+          - { name: c1Text, label: "1. koleksiyon: açıklama", type: text }
+          - { name: c2Eyebrow, label: "2. koleksiyon: üst yazı", type: string }
+          - { name: c2Title, label: "2. koleksiyon: başlık", type: string }
+          - { name: c2Text, label: "2. koleksiyon: açıklama", type: text }
+          - { name: inclEyebrow, label: "Neler alacaksın: üst yazı", type: string }
+          - { name: inclTitle, label: "Neler alacaksın: başlık", type: string }
+          - { name: inclText, label: "Neler alacaksın: açıklama", type: text }
+          - name: incl
+            label: Neler alacaksın maddeleri
+            type: object
+            list: true
+            fields:
+              - { name: spec, label: Ölçü / teknik bilgi, type: string }
+              - { name: title, label: Başlık, type: string }
+              - { name: text, label: Açıklama, type: text }
+          - { name: aboutEyebrow, label: "Hakkımda: üst yazı", type: string }
+          - { name: aboutQuote, label: "Hakkımda: alıntı", type: string }
+          - name: facts
+            label: Hakkımda sayıları
+            type: object
+            list: true
+            fields:
+              - { name: v, label: Sayı, type: string }
+              - { name: l, label: Açıklama, type: string }
+          - name: story
+            label: Hikâye paragrafları
+            type: text
+            list: true
+          - { name: signature, label: İmza, type: string }
+          - name: notes
+            label: Alttaki notlar
+            type: object
+            list: true
+            fields:
+              - { name: t, label: Başlık, type: string }
+              - { name: p, label: Metin, type: text }
+          - { name: footer, label: Altbilgi, type: string }
+          - { name: soon, label: "Etsy linki yokken görünen yazı", type: string }
