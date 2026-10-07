@@ -88,6 +88,16 @@ content:
           - name: img
             label: Görsel
             type: image
+          - name: credit
+            label: Görselin kaynağı / telif notu
+            type: string
+          - name: gallery
+            label: Yazının altındaki ek görseller
+            type: object
+            list: true
+            fields:
+              - { name: img, label: Görsel, type: image }
+              - { name: caption, label: "Alt yazı ve kaynak", type: string }
           - name: excerpt
             label: Kısa özet (kartta görünür)
             type: text

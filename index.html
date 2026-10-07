@@ -12,6 +12,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://ninelivespiritcats.com/">
+<meta name="google-site-verification" content="8Nd9NADuvd8TudJaMufeowgQag2wRtjHLE7QmA8wPLg">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Nine Lives Spirit Cats","url":"https://ninelivespiritcats.com/","logo":"https://ninelivespiritcats.com/favicon.svg","description":"Spiritual cat art prints by Mira, the Cat Keeper, from Istanbul.","founder":{"@type":"Person","name":"Mira, the Cat Keeper"}}
 </script>
@@ -129,11 +130,15 @@ dialog::backdrop{background:#0b0c1dcc}
 .tag time{color:var(--muted);letter-spacing:.04em;text-transform:none;font-weight:500}
 .draft{background:var(--gold-soft);color:var(--on-gold);border-radius:999px;padding:1px 8px;letter-spacing:.06em}
 .reader{max-width:min(720px,calc(100vw - 32px))}
-.reader img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--line)}
+.reader img{display:block;width:100%;max-height:440px;object-fit:contain;background:var(--bg)}
 .reader .rb{padding:28px clamp(20px,5vw,44px) 36px;display:grid;gap:14px}
 .reader h3{font-size:clamp(28px,4vw,36px);line-height:1.15}
 .reader .rt{display:grid;gap:14px;max-width:62ch}
 .reader .rt p{margin:0;white-space:pre-line}
+.reader .credit{font-size:12px;color:var(--muted);margin:-6px 0 4px}
+.reader figure{margin:8px 0 0;display:grid;gap:8px}
+.reader figure img{aspect-ratio:auto;border-radius:8px;height:auto}
+.reader figcaption{font-size:12px;color:var(--muted)}
 .reader .src{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin:6px 0 0}
 
 /* contact */
@@ -309,7 +314,9 @@ dialog::backdrop{background:#0b0c1dcc}
   <div class="rb">
     <span class="tag" id="rd-tag"></span>
     <h3 id="rd-title"></h3>
+    <p class="credit" id="rd-credit"></p>
     <div class="rt" id="rd-body"></div>
+    <div id="rd-gallery"></div>
     <p class="src" id="rd-src"></p>
   </div>
 </dialog>
@@ -384,6 +391,11 @@ function openPost(p){
   $('rd-tag').replaceWith(Object.assign(tagFor(p), { id: 'rd-tag' }));
   $('rd-title').textContent = p.title;
   $('rd-body').replaceChildren(...(p.body || '').split(/\n\s*\n/).map(t => el('p', null, t.trim())));
+  $('rd-credit').textContent = p.credit || ''; $('rd-credit').hidden = !p.credit;
+  $('rd-gallery').replaceChildren(...(p.gallery || []).filter(g => g.img).map(g => {
+    const f = el('figure'), im = el('img'); im.src = g.img; im.alt = g.caption || ''; im.loading = 'lazy';
+    f.append(im); if (g.caption) f.append(el('figcaption', null, g.caption)); return f;
+  }));
   $('rd-src').textContent = p.source || ''; $('rd-src').hidden = !p.source;
   if (p.slug) history.replaceState(null, '', location.pathname + location.search + '#' + p.slug);
   $('rd').showModal();
