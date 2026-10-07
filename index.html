@@ -364,7 +364,7 @@ function render(S){
 
 /* news & stories: drafts stay hidden unless the address ends with ?preview */
 const PREVIEW = new URLSearchParams(location.search).has('preview');
-const KIND = { story: 'Story', news: 'News' };
+const KIND = { story: 'Legend', true: 'True story', news: 'News' };
 let thanks = '';
 function fmtDate(d){ const t = new Date(d + 'T12:00:00'); return isNaN(t) ? '' : t.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }); }
 function tagFor(p){

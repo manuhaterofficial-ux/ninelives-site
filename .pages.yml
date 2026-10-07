@@ -76,7 +76,9 @@ content:
             options:
               values:
                 - name: story
-                  label: Hikâye
+                  label: Efsane / halk hikâyesi
+                - name: "true"
+                  label: Gerçek hikâye
                 - name: news
                   label: Haber
           - name: date
