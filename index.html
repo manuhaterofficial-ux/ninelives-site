@@ -78,7 +78,10 @@ section{padding-block:72px}
 .card .meta{padding:14px 16px 16px;display:grid;gap:4px}
 .card .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .card h3{font-size:20px;min-width:0}
-.price{font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap}
+.card .intro{margin:6px 0 0;font-size:15px;line-height:1.5}
+.dtheme{font-weight:600;color:var(--gold)}
+.story-text{display:grid;gap:12px}
+.story-text p{margin:0}
 .card .theme{font-size:13px;color:var(--muted)}
 .num{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--lavender);font-weight:600}
 
@@ -299,9 +302,8 @@ dialog::backdrop{background:#0b0c1dcc}
     <div class="body">
       <span class="num" id="dlg-num"></span>
       <h3 id="dlg-title"></h3>
-      <span class="price" id="dlg-price"></span>
-      <p id="dlg-legend"></p>
-      <p class="full" id="dlg-full"></p>
+      <span class="dtheme" id="dlg-theme"></span>
+      <div class="story-text" id="dlg-story"></div>
       <div><a class="btn btn-gold" id="dlg-buy" href="#" target="_blank" rel="noopener" hidden>Buy on Etsy</a></div>
       <p class="soon" id="dlg-soon">Coming soon as an instant digital download on Etsy.</p>
     </div>
@@ -323,7 +325,6 @@ dialog::backdrop{background:#0b0c1dcc}
 
 <script>
 const $ = id => document.getElementById(id);
-const money = n => '$' + Number(n || 0).toFixed(2);
 const safeUrl = u => /^https:\/\//i.test(u || '') ? u : '';
 function el(tag, cls, text){ const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
 
@@ -345,9 +346,9 @@ function render(S){
     P.filter(p => (p.collection || 'companions') === col).forEach(p => {
       const b = el('button', 'card'); b.type = 'button';
       const img = el('img'); img.src = p.img; img.alt = p.alt || p.name; img.loading = 'lazy';
-      const meta = el('div', 'meta'), row = el('div', 'row');
-      row.append(el('h3', null, p.name), el('span', 'price', money(p.price)));
-      meta.append(el('span', 'num', p.label || ''), row, el('span', 'theme', p.theme || ''));
+      const meta = el('div', 'meta');
+      meta.append(el('span', 'num', p.label || ''), el('h3', null, p.name), el('span', 'theme', p.theme || ''));
+      if (p.intro) meta.append(el('p', 'intro', p.intro));
       b.append(img, meta); b.addEventListener('click', () => openView(p));
       g.appendChild(b);
     });
@@ -423,9 +424,8 @@ function openView(p){
   $('dlg-img').src = p.img; $('dlg-img').alt = p.alt || p.name;
   $('dlg-num').textContent = p.label || '';
   $('dlg-title').textContent = p.name;
-  $('dlg-price').textContent = money(p.price) + ' · digital download';
-  $('dlg-legend').textContent = p.legend || '';
-  $('dlg-full').textContent = p.title || '';
+  $('dlg-theme').textContent = p.theme || '';
+  $('dlg-story').replaceChildren(...(p.story || p.intro || '').split(/\n\s*\n/).map(t => el('p', null, t.trim())));
   const buy = safeUrl(p.etsy);
   $('dlg-buy').hidden = !buy; if (buy) $('dlg-buy').href = buy;
   $('dlg-soon').hidden = !!buy;

@@ -26,9 +26,6 @@ content:
           - name: img
             label: Görsel
             type: image
-          - name: price
-            label: Fiyat ($)
-            type: number
           - name: collection
             label: Koleksiyon
             type: select
@@ -44,12 +41,12 @@ content:
           - name: theme
             label: Kısa tema
             type: string
-          - name: legend
-            label: Efsane
+          - name: intro
+            label: Tanıtım cümlesi (kartta görünür)
             type: text
-          - name: title
-            label: Uzun başlık (Etsy başlığı)
-            type: string
+          - name: story
+            label: Hikâye (kediye tıklayınca görünür; paragrafların arasında bir boş satır bırak)
+            type: text
           - name: alt
             label: Görsel açıklaması
             type: string
